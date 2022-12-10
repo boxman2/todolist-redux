@@ -1,25 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import Router from "./shared/Router";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+  const { todos } = useSelector((state) => state.todos);
+
+  useEffect(() => {
+    localStorage.setItem("todo", JSON.stringify(todos));
+  }, [todos]);
+
+  return <Router />;
+};
 
 export default App;
