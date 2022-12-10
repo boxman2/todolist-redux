@@ -28,6 +28,9 @@ const Form = () => {
         isDone: false,
       })
     );
+    console.log("나는브랜치다");
+    console.log("하하 반갑습니다");
+    console.log("안녕하십니가");
 
     setInput({
       title: "",
